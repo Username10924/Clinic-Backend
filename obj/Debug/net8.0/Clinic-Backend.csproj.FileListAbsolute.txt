@@ -146,3 +146,5 @@
 /home/x/projects/hair-clinic/Clinic-Backend/obj/Debug/net8.0/Clinic-Backend.pdb
 /home/x/projects/hair-clinic/Clinic-Backend/obj/Debug/net8.0/Clinic-Backend.genruntimeconfig.cache
 /home/x/projects/hair-clinic/Clinic-Backend/obj/Debug/net8.0/ref/Clinic-Backend.dll
+/home/x/projects/hair-clinic/Clinic-Backend/obj/Debug/net8.0/Clinic-Backend.sourcelink.json
+/home/x/projects/hair-clinic/Clinic-Backend/bin/Debug/net8.0/Clinic-Backend.staticwebassets.runtime.json

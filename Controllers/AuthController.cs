@@ -33,16 +33,22 @@ namespace Clinic_Backend.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterDto model)
         {
+            if (model == null || string.IsNullOrEmpty(model.Email))
+            {
+                return BadRequest(new { message = "Invalid registration data." });
+            }
+
             var user = new ApplicationUser
             {
-                UserName = model.FirstName,
+                UserName = model.Email, // Use email as username for uniqueness
                 Email = model.Email,
-                FirstName = model.FirstName,
-                LastName = model.LastName,
-                DateOfBirth = model.DateOfBirth,
-                Sex = model.Sex,
-                City = model.City,
-                Country = model.Country,
+                FirstName = model.FirstName ?? "",
+                LastName = model.LastName ?? "",
+                DateOfBirth = DateTime.SpecifyKind(model.DateOfBirth, DateTimeKind.Utc),
+                Sex = model.Sex ?? "",
+                City = model.City ?? "",
+                Country = model.Country ?? "",
+                CreatedAt = DateTime.UtcNow
             };
 
             var result = await _userManager.CreateAsync(user, model.Password);
@@ -68,7 +74,7 @@ namespace Clinic_Backend.Controllers
             {
                 Token = token,
                 UserId = user.Id,
-                Email = user.Email,
+                Email = user.Email ?? "",
                 Role = "User"
             });
         }
@@ -102,7 +108,7 @@ namespace Clinic_Backend.Controllers
             {
                 new Claim(JwtRegisteredClaimNames.Sub, user.Id),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()), // Unique identifier for the token
-                new Claim(JwtRegisteredClaimNames.Email, user.Email)
+                new Claim(JwtRegisteredClaimNames.Email, user.Email ?? "")
             };
 
             foreach (var role in userRoles)
@@ -110,7 +116,13 @@ namespace Clinic_Backend.Controllers
                 claims.Add(new Claim(ClaimTypes.Role, role));
             }
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+            var jwtKey = _configuration["Jwt:Key"];
+            if (string.IsNullOrEmpty(jwtKey))
+            {
+                throw new InvalidOperationException("JWT Key is not configured.");
+            }
+
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var token = new JwtSecurityToken(

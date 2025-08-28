@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Clinic-Backend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1f5e9be5e28ec40035d4959425ccfd1aed1ca398")]
 [assembly: System.Reflection.AssemblyProductAttribute("Clinic-Backend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Clinic-Backend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

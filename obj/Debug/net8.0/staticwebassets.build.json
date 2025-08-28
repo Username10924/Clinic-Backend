@@ -1,11 +1,39 @@
 {
   "Version": 1,
-  "Hash": "F+aA64c6DCucpG5nEuwXI37QWRnxFPLeX+t9BG1SvaM=",
+  "Hash": "nN3SPfcVD2Gc9TxcGU37WVBdMHtgaKmY9tHiKrf8jX8=",
   "Source": "Clinic-Backend",
   "BasePath": "_content/Clinic-Backend",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "Clinic-Backend/wwwroot",
+      "Source": "Clinic-Backend",
+      "ContentRoot": "/home/x/projects/hair-clinic/Clinic-Backend/wwwroot/",
+      "BasePath": "_content/Clinic-Backend",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "/home/x/projects/hair-clinic/Clinic-Backend/wwwroot/placeholder.txt",
+      "SourceId": "Clinic-Backend",
+      "SourceType": "Discovered",
+      "ContentRoot": "/home/x/projects/hair-clinic/Clinic-Backend/wwwroot/",
+      "BasePath": "_content/Clinic-Backend",
+      "RelativePath": "placeholder.txt",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/placeholder.txt"
+    }
+  ]
 }
